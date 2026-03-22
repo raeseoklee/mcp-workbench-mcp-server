@@ -1,0 +1,35 @@
+{
+  "name": "mcp-workbench-mcp-server",
+  "version": "0.1.0",
+  "description": "MCP Workbench as an MCP server — expose inspect, generate, and test capabilities to AI agents",
+  "type": "module",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raeseoklee/mcp-workbench-mcp-server.git"
+  },
+  "homepage": "https://github.com/raeseoklee/mcp-workbench-mcp-server#readme",
+  "bugs": {
+    "url": "https://github.com/raeseoklee/mcp-workbench-mcp-server/issues"
+  },
+  "engines": { "node": ">=20.0.0" },
+  "main": "./dist/index.js",
+  "bin": { "mcp-workbench-server": "./dist/index.js" },
+  "files": ["dist", "README.md"],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "vitest run --passWithNoTests",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf dist",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0",
+    "vitest": "^2.0.0",
+    "@types/node": "^22.0.0"
+  }
+}
