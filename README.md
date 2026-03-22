@@ -2,6 +2,8 @@
 
 Expose [MCP Workbench](https://github.com/raeseoklee/mcp-workbench) capabilities as an MCP server, so AI agents (Claude, Cursor, etc.) can inspect, test, and validate MCP servers programmatically.
 
+![demo](docs/assets/demo.gif)
+
 ## How it differs from `mcp-workbench` CLI
 
 The `mcp-workbench` CLI is designed for human developers running commands in a terminal. This project wraps that CLI as an MCP server, so AI agents can call the same capabilities as structured tools with typed inputs and outputs.
