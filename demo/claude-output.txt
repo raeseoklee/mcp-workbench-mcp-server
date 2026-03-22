@@ -1,0 +1,41 @@
+Here's the inspection of the demo MCP server (`demo-mcp-server`):
+
+## Server Info
+- **Name:** `demo-mcp-server`
+- **Transport:** stdio
+- **Entry:** `node .../examples/demo-mcp/dist/index.js`
+
+## Capabilities
+| Capability | Options |
+|---|---|
+| `tools` | `listChanged: false` |
+| `resources` | `subscribe: false`, `listChanged: false` |
+| `prompts` | `listChanged: false` |
+
+---
+
+## Tools (3)
+
+### `get_weather` *(readOnlyHint)*
+Get current weather for a city.
+- **Input:** `city: string` — one of `Seoul`, `Tokyo`, `London`, `New_York`
+
+### `create_note` *(destructiveHint)*
+Create a new note resource.
+- **Input:** `id: string`, `content: string`
+
+### `list_roots` *(readOnlyHint)*
+Asks the client for its workspace roots.
+
+---
+
+## Resources (2)
+| URI | Name |
+|---|---|
+| `note://welcome` | `welcome` |
+| `note://readme` | `readme` |
+
+## Prompts (1)
+
+### `greet`
+Generate a greeting — `name` (required), `style` (optional: `formal` | `casual`)
