@@ -1,8 +1,19 @@
 {
-  "name": "mcp-workbench-mcp-server",
+  "name": "@mcp-workbench/mcp-server",
   "version": "0.1.0",
-  "description": "MCP Workbench as an MCP server — expose inspect, generate, and test capabilities to AI agents",
+  "description": "MCP server adapter for MCP Workbench — expose inspect, generate, and test capabilities to AI agents",
   "type": "module",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "mcp-server",
+    "mcp-testing",
+    "mcp-workbench",
+    "claude-desktop",
+    "cursor",
+    "ai-tooling",
+    "developer-tools"
+  ],
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
@@ -26,6 +37,9 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.12.0"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "devDependencies": {
     "typescript": "^5.6.0",

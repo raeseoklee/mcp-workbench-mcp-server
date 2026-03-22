@@ -3,7 +3,6 @@ import { runCli, withTempFile } from "../cli/runner.js";
 export interface RunSpecInput {
   specText?: string;
   specPath?: string;
-  headers?: Record<string, string>;
   timeoutMs?: number;
 }
 

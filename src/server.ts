@@ -131,12 +131,6 @@ export function createServer(): Server {
               type: "string",
               description: "Path to a YAML spec file to run",
             },
-            headers: {
-              type: "object",
-              additionalProperties: { type: "string" },
-              description:
-                "HTTP headers (for future use — headers typically come from the spec itself)",
-            },
             timeoutMs: {
               type: "number",
               description: "Timeout in milliseconds (default: 30000)",
@@ -223,7 +217,10 @@ export function createServer(): Server {
             args as unknown as Parameters<typeof inspectServer>[0],
           );
           return {
-            content: [{ type: "text" as const, text: output.text }],
+            content: [
+              { type: "text" as const, text: output.text },
+              { type: "text" as const, text: JSON.stringify(output.structured, null, 2) },
+            ],
           };
         }
         case "generate_spec": {
@@ -231,7 +228,10 @@ export function createServer(): Server {
             args as unknown as Parameters<typeof generateSpec>[0],
           );
           return {
-            content: [{ type: "text" as const, text: output.text }],
+            content: [
+              { type: "text" as const, text: output.text },
+              { type: "text" as const, text: JSON.stringify(output.structured, null, 2) },
+            ],
           };
         }
         case "run_spec": {
@@ -239,7 +239,10 @@ export function createServer(): Server {
             args as unknown as Parameters<typeof runSpec>[0],
           );
           return {
-            content: [{ type: "text" as const, text: output.text }],
+            content: [
+              { type: "text" as const, text: output.text },
+              { type: "text" as const, text: JSON.stringify(output.structured, null, 2) },
+            ],
           };
         }
         case "explain_failure": {
@@ -247,7 +250,10 @@ export function createServer(): Server {
             args as unknown as Parameters<typeof explainFailure>[0],
           );
           return {
-            content: [{ type: "text" as const, text: output.text }],
+            content: [
+              { type: "text" as const, text: output.text },
+              { type: "text" as const, text: JSON.stringify(output.structured, null, 2) },
+            ],
           };
         }
         default:
