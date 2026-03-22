@@ -1,4 +1,5 @@
 import { runCli } from "../cli/runner.js";
+import { t } from "../i18n.js";
 
 export interface GenerateSpecInput {
   transport: "stdio" | "streamable-http";
@@ -31,10 +32,10 @@ export async function generateSpec(
   const testCount = countTests(yaml);
   const warnings = detectWarnings(yaml);
 
-  const textParts = [`Generated spec \u2014 ${testCount} tests`];
+  const textParts = [t("server.generate.summary", { count: testCount })];
   if (warnings.length > 0) {
     textParts.push("");
-    textParts.push("Warnings:");
+    textParts.push(t("server.generate.warnings"));
     for (const w of warnings) {
       textParts.push(`  - ${w}`);
     }

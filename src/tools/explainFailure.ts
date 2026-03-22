@@ -1,4 +1,5 @@
 import type { RunReport, TestResult, AssertionResult } from "./runSpec.js";
+import { t } from "../i18n.js";
 
 export { type RunReport, type TestResult, type AssertionResult };
 
@@ -62,7 +63,7 @@ export function explainFailure(
 
   if (failedTests.length === 0) {
     return {
-      text: "All tests passed \u2014 no failures to explain.",
+      text: t("server.explain.allPassed"),
       structured: {
         summary: "All tests passed",
         causes: [],
@@ -94,15 +95,21 @@ export function explainFailure(
     .map((c) => `${c.count} ${c.type} failure${c.count > 1 ? "s" : ""}`)
     .join(", ");
 
-  const textParts = [`${failedTests.length} failed test(s): ${summary}`, ""];
-  textParts.push("Causes:");
+  const causeKey = (type: CauseType): string =>
+    `server.explain.cause.${type}`;
+  const recKey = (type: CauseType): string =>
+    `server.explain.rec.${type}`;
+
+  const textParts = [t("server.explain.summary"), ""];
+  textParts.push(t("server.explain.causes"));
   for (const c of causes) {
-    textParts.push(`  [${c.type}] ${c.count}x \u2014 ${c.description}`);
+    textParts.push(`  \u2022 ${t(causeKey(c.type), { count: c.count })}`);
   }
   textParts.push("");
-  textParts.push("Recommendations:");
-  for (const r of recommendations) {
-    textParts.push(`  \u2022 ${r}`);
+  textParts.push(t("server.explain.recommendations"));
+  for (const c of causes) {
+    const rec = t(recKey(c.type));
+    textParts.push(`  \u2022 ${rec}`);
   }
 
   return {

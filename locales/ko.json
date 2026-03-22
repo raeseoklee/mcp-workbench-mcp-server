@@ -1,0 +1,36 @@
+{
+  "server.inspect.header": "서버: {name} v{version}",
+  "server.inspect.protocol": "프로토콜: {version}",
+  "server.inspect.capabilities": "기능:",
+  "server.inspect.instructions": "지침: {text}",
+
+  "server.generate.summary": "스펙 생성 완료 — {count}개 테스트",
+  "server.generate.warnings": "경고:",
+  "server.generate.noTests": "스펙 생성 완료 — 0개 테스트",
+
+  "server.run.completed": "스펙 실행 완료.",
+  "server.run.tests": "테스트:  {total}",
+  "server.run.passed": "통과:   {passed}",
+  "server.run.failed": "실패:   {failed}",
+  "server.run.skipped": "건너뜀: {skipped}",
+  "server.run.errors": "오류:   {errors}",
+  "server.run.duration": "소요 시간: {ms}ms",
+  "server.run.failures": "실패 목록:",
+  "server.run.noInput": "specText 또는 specPath를 제공하세요",
+
+  "server.explain.allPassed": "모든 테스트 통과 — 설명할 실패가 없습니다.",
+  "server.explain.summary": "테스트 실행 분석:",
+  "server.explain.causes": "예상 원인:",
+  "server.explain.recommendations": "권장 조치:",
+  "server.explain.cause.auth": "인증 문제 ({count}개 테스트)",
+  "server.explain.cause.placeholder": "placeholder 값 미교체 ({count}개 테스트)",
+  "server.explain.cause.discovery": "기능 미지원 ({count}개 테스트)",
+  "server.explain.cause.protocol": "연결/프로토콜 오류 ({count}개 테스트)",
+  "server.explain.cause.assertion": "어서션 실패 ({count}개 테스트)",
+  "server.explain.cause.unknown": "원인 불명 ({count}개 테스트)",
+  "server.explain.rec.auth": "서버 설정에 인증 헤더를 추가하세요",
+  "server.explain.rec.placeholder": "스펙의 TODO_ placeholder를 실제 값으로 교체하세요",
+  "server.explain.rec.discovery": "inspect_server 결과를 확인하세요 — 해당 기능이 미지원일 수 있습니다",
+  "server.explain.rec.protocol": "서버가 실행 중이고 접근 가능한지 확인하세요",
+  "server.explain.rec.assertion": "스펙 어서션의 기대값을 검토하세요"
+}

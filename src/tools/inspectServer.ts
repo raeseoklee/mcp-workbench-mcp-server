@@ -1,4 +1,5 @@
 import { runCli } from "../cli/runner.js";
+import { t } from "../i18n.js";
 
 export interface InspectServerInput {
   transport: "stdio" | "streamable-http";
@@ -66,13 +67,19 @@ export async function inspectServer(
     .map((c) => `  ${capabilities[c] ? "\u2713" : "\u25CB"} ${c}`)
     .join("\n");
 
-  const text = [
-    `Server: ${structured.serverName} v${structured.serverVersion}`,
-    `Protocol: ${structured.protocolVersion}`,
+  const lines: string[] = [
+    t("server.inspect.header", { name: structured.serverName, version: structured.serverVersion }),
+    t("server.inspect.protocol", { version: structured.protocolVersion }),
     "",
-    "Capabilities:",
+    t("server.inspect.capabilities"),
     capLines,
-  ].join("\n");
+  ];
+
+  if (structured.instructions) {
+    lines.push(t("server.inspect.instructions", { text: structured.instructions }));
+  }
+
+  const text = lines.join("\n");
 
   return { text, structured };
 }

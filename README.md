@@ -1,3 +1,5 @@
+**English** | [한국어](README.ko.md)
+
 # @mcp-workbench/mcp-server
 
 Agent-facing MCP adapter for [MCP Workbench](https://github.com/raeseoklee/mcp-workbench) — lets AI agents inspect, test, and validate MCP servers through structured tool calls.
@@ -204,6 +206,25 @@ Analyze test run results and explain failures with heuristic classification and 
   "recommendations": []
 }
 ```
+
+---
+
+## Internationalization
+
+Tool text summaries support multiple languages. Structured JSON outputs are always language-neutral.
+
+| Locale | Language |
+|--------|----------|
+| `en`   | English (default) |
+| `ko`   | Korean |
+
+Set language via environment variable:
+
+```bash
+MCP_WORKBENCH_LANG=ko node dist/index.js
+```
+
+Only user-facing text summaries are translated. Tool names, schema fields, and JSON output keys are always in English.
 
 ---
 

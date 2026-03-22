@@ -1,4 +1,5 @@
 import { runCli, withTempFile } from "../cli/runner.js";
+import { t } from "../i18n.js";
 
 export interface RunSpecInput {
   specText?: string;
@@ -69,27 +70,27 @@ export async function runSpec(input: RunSpecInput): Promise<RunSpecOutput> {
 
 function formatReport(report: RunReport): string {
   const lines = [
-    "Spec run completed.",
+    t("server.run.completed"),
     "",
-    `Tests:  ${report.total}`,
-    `Passed: ${report.passed}`,
-    `Failed: ${report.failed}`,
-    `Skipped: ${report.skipped}`,
-    `Errors: ${report.errors}`,
-    `Duration: ${report.durationMs}ms`,
+    t("server.run.tests", { total: report.total }),
+    t("server.run.passed", { passed: report.passed }),
+    t("server.run.failed", { failed: report.failed }),
+    t("server.run.skipped", { skipped: report.skipped }),
+    t("server.run.errors", { errors: report.errors }),
+    t("server.run.duration", { ms: report.durationMs }),
   ];
 
   const failures = report.tests.filter(
-    (t) => t.status === "failed" || t.status === "error",
+    (tr) => tr.status === "failed" || tr.status === "error",
   );
 
   if (failures.length > 0) {
     lines.push("");
-    lines.push("Failures:");
-    for (const t of failures) {
+    lines.push(t("server.run.failures"));
+    for (const tr of failures) {
       const reason =
-        t.error ?? findFirstFailedMessage(t.assertionResults) ?? "unknown";
-      lines.push(`  \u2717 ${t.testId}: ${reason}`);
+        tr.error ?? findFirstFailedMessage(tr.assertionResults) ?? "unknown";
+      lines.push(`  \u2717 ${tr.testId}: ${reason}`);
     }
   }
 

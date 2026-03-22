@@ -1,0 +1,36 @@
+{
+  "server.inspect.header": "Server: {name} v{version}",
+  "server.inspect.protocol": "Protocol: {version}",
+  "server.inspect.capabilities": "Capabilities:",
+  "server.inspect.instructions": "Instructions: {text}",
+
+  "server.generate.summary": "Generated spec — {count} tests",
+  "server.generate.warnings": "Warnings:",
+  "server.generate.noTests": "Generated spec — 0 tests",
+
+  "server.run.completed": "Spec run completed.",
+  "server.run.tests": "Tests:  {total}",
+  "server.run.passed": "Passed: {passed}",
+  "server.run.failed": "Failed: {failed}",
+  "server.run.skipped": "Skipped: {skipped}",
+  "server.run.errors": "Errors: {errors}",
+  "server.run.duration": "Duration: {ms}ms",
+  "server.run.failures": "Failures:",
+  "server.run.noInput": "Provide specText or specPath",
+
+  "server.explain.allPassed": "All tests passed — no failures to explain.",
+  "server.explain.summary": "Test run analysis:",
+  "server.explain.causes": "Likely causes:",
+  "server.explain.recommendations": "Recommendations:",
+  "server.explain.cause.auth": "Authentication issue ({count} test(s))",
+  "server.explain.cause.placeholder": "Placeholder values not replaced ({count} test(s))",
+  "server.explain.cause.discovery": "Capability not supported ({count} test(s))",
+  "server.explain.cause.protocol": "Connection/protocol error ({count} test(s))",
+  "server.explain.cause.assertion": "Assertion failure ({count} test(s))",
+  "server.explain.cause.unknown": "Unknown cause ({count} test(s))",
+  "server.explain.rec.auth": "Add authentication headers to the server config",
+  "server.explain.rec.placeholder": "Replace TODO_ placeholder values in the spec with actual test data",
+  "server.explain.rec.discovery": "Check inspect_server results — this capability may not be supported",
+  "server.explain.rec.protocol": "Check that the server is running and accessible",
+  "server.explain.rec.assertion": "Review the expected values in the spec assertions"
+}

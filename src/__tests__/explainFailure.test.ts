@@ -1,6 +1,7 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, afterEach } from "vitest";
 import { explainFailure } from "../tools/explainFailure.js";
 import type { RunReport } from "../tools/runSpec.js";
+import { setLang } from "../i18n.js";
 
 function makeReport(overrides: Partial<RunReport> = {}): RunReport {
   return {
@@ -167,5 +168,31 @@ describe("explainFailure", () => {
     expect(result.structured.recommendations.length).toBe(
       result.structured.causes.length,
     );
+  });
+
+  it("structured output does not change across locales", () => {
+    const report = makeReport({
+      total: 1,
+      failed: 1,
+      tests: [
+        {
+          testId: "test-auth",
+          status: "failed",
+          durationMs: 50,
+          error: "401 Unauthorized",
+          assertionResults: [],
+        },
+      ],
+    });
+
+    setLang("en");
+    const enResult = explainFailure({ runResult: report });
+
+    setLang("ko");
+    const koResult = explainFailure({ runResult: report });
+
+    setLang("en");
+
+    expect(koResult.structured).toEqual(enResult.structured);
   });
 });
