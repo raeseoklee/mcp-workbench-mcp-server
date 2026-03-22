@@ -4,6 +4,10 @@ Expose [MCP Workbench](https://github.com/raeseoklee/mcp-workbench) capabilities
 
 ![demo](docs/assets/demo.gif)
 
+### Claude Code demo
+
+![claude-demo](docs/assets/claude-demo.gif)
+
 ## How it differs from `mcp-workbench` CLI
 
 The `mcp-workbench` CLI is designed for human developers running commands in a terminal. This project wraps that CLI as an MCP server, so AI agents can call the same capabilities as structured tools with typed inputs and outputs.
