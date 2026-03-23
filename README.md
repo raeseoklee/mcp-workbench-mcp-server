@@ -59,6 +59,27 @@ npm run build
 
 ## Connecting to a Host
 
+### Claude Code
+
+```bash
+claude mcp add mcp-workbench -- npx -y @mcp-workbench/mcp-server
+```
+
+### OpenAI Codex CLI
+
+```bash
+codex mcp add mcp-workbench -- npx -y @mcp-workbench/mcp-server
+```
+
+Or add to `~/.codex/config.toml`:
+
+```toml
+[mcp_servers.mcp-workbench]
+command = "npx"
+args    = ["-y", "@mcp-workbench/mcp-server"]
+enabled = true
+```
+
 ### Claude Desktop
 
 Add to your `claude_desktop_config.json`:
@@ -67,8 +88,8 @@ Add to your `claude_desktop_config.json`:
 {
   "mcpServers": {
     "mcp-workbench": {
-      "command": "node",
-      "args": ["/absolute/path/to/mcp-workbench-mcp-server/dist/index.js"]
+      "command": "npx",
+      "args": ["-y", "@mcp-workbench/mcp-server"]
     }
   }
 }
@@ -82,17 +103,11 @@ Add to `.cursor/mcp.json`:
 {
   "mcpServers": {
     "mcp-workbench": {
-      "command": "node",
-      "args": ["/absolute/path/to/mcp-workbench-mcp-server/dist/index.js"]
+      "command": "npx",
+      "args": ["-y", "@mcp-workbench/mcp-server"]
     }
   }
 }
-```
-
-### Claude Code
-
-```bash
-claude mcp add mcp-workbench -- node /absolute/path/to/mcp-workbench-mcp-server/dist/index.js
 ```
 
 ---

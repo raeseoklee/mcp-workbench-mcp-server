@@ -53,6 +53,27 @@ npm run build
 
 ## 호스트 연결 방법
 
+### Claude Code
+
+```bash
+claude mcp add mcp-workbench -- npx -y @mcp-workbench/mcp-server
+```
+
+### OpenAI Codex CLI
+
+```bash
+codex mcp add mcp-workbench -- npx -y @mcp-workbench/mcp-server
+```
+
+또는 `~/.codex/config.toml`에 추가:
+
+```toml
+[mcp_servers.mcp-workbench]
+command = "npx"
+args    = ["-y", "@mcp-workbench/mcp-server"]
+enabled = true
+```
+
 ### Claude Desktop
 
 `claude_desktop_config.json`에 추가:
@@ -61,8 +82,8 @@ npm run build
 {
   "mcpServers": {
     "mcp-workbench": {
-      "command": "node",
-      "args": ["/absolute/path/to/mcp-workbench-mcp-server/dist/index.js"]
+      "command": "npx",
+      "args": ["-y", "@mcp-workbench/mcp-server"]
     }
   }
 }
@@ -76,17 +97,11 @@ npm run build
 {
   "mcpServers": {
     "mcp-workbench": {
-      "command": "node",
-      "args": ["/absolute/path/to/mcp-workbench-mcp-server/dist/index.js"]
+      "command": "npx",
+      "args": ["-y", "@mcp-workbench/mcp-server"]
     }
   }
 }
-```
-
-### Claude Code
-
-```bash
-claude mcp add mcp-workbench -- node /absolute/path/to/mcp-workbench-mcp-server/dist/index.js
 ```
 
 ---
